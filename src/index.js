@@ -1,24 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import {GameEngine} from "react-game-engine";
-import { Box } from "./renderers.js";
-import { MoveBox } from "./systems.js";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-function App(){
-    return(
-        <GameEngine
-        style={{ width: 800, height: 600, backgroundColor: "blue" }}
-        systems={[MoveBox]}
-        entities={{
-          //-- Notice that each entity has a unique id (required)
-          //-- and a renderer property (optional). If no renderer
-          //-- is supplied with the entity - it won't get displayed.
-          box1: { x: 200,  y: 200, renderer: <Box />}
-        }}>
- 
-      </GameEngine>
-    )
-}
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-
-ReactDOM.render(<App/>, document.getElementById('root'))
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
