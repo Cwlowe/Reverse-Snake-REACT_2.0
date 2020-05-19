@@ -8,7 +8,7 @@ const style = {
 
 return(
 
-    <div style={style} className="enemyStyles">&nbsp;</div>    
+    <div style={style} className="enemy">&nbsp;</div>    
 )}
 
 export default enemy; 
