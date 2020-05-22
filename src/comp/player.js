@@ -1,14 +1,13 @@
 import React from 'react';
 
-let Player = () =>{
-    const size = 20;
-    const x = this.props.x - size / 2;
-    const y = this.props.y - size / 2;
+let Player = (props) =>{
+    const x = props.x;
+    const y = props.y;
     const style = {
         height:"20px",
         width:"20px",
-        backgroundColor:"black",
-        position: "absolute",
+        backgroundColor:"grey",
+        position: "relative",
         left:x,
         top:y
 

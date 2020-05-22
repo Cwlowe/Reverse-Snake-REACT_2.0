@@ -6,8 +6,18 @@ import Player from './player';
 import {MovePlayer} from "../systems/systems";
 
 class Board extends React.Component{  
+    constructor(prop){
+        super(prop);
+        this.state = {
+            player:{
+                x: 0, 
+                y:0
+            }
+        };
+    }
     
     render(){
+        console.log(window.screenX, window.screenY)
         const styles = {
             height:"60vh",
             width: "80vh",
@@ -20,7 +30,11 @@ class Board extends React.Component{
             style= {styles}
             systems={[MovePlayer]}
             entities={{
-                Player:{x:50,y:50, renderer:<Player />}
+                Player:{
+                    x:this.state.player.x,
+                    y:this.state.player.y, 
+                    renderer:<Player/>
+                }
             }}>
             </GameEngine>
         );
