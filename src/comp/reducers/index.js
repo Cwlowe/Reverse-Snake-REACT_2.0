@@ -1,8 +1,10 @@
 import counterReducer from './counter';
-import {combineReducer} from 'redux';
+import PlayerLOC from './playerLoc';
+import {combineReducers} from 'redux';
 
-const allReducer = combineReducer({
+const allReducer = combineReducers({
     counter: counterReducer,
+    location: PlayerLOC
 })
 
 export default allReducer;

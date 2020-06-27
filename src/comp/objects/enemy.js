@@ -3,7 +3,6 @@ import React from 'react';
 const enemy = () =>{
 const style = {
     top: "10px",
-    
 }
 
 return(

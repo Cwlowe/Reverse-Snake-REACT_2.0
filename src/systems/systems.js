@@ -1,5 +1,5 @@
 
-const MovePlayer = (entities,{input}) => {
+export const MovePlayer = (entities,{input}) => {
     const {payload} = input.find(x=>x.name === "onKeyPress") || {};
     
     if(payload){
@@ -15,4 +15,4 @@ const MovePlayer = (entities,{input}) => {
 
     return entities;
 };
-export {MovePlayer};
+

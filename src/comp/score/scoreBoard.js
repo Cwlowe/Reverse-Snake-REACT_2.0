@@ -1,7 +1,10 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import {useSelector} from 'react-redux';
 
 const ScoreBoard = () => {
+    const counter = useSelector(state => state.counter);
+
     const TitleStyle = styled.h1`
         color:white;
         display:inline;
@@ -22,7 +25,7 @@ const ScoreBoard = () => {
     return(
         <ScoreBStyle>
             <TitleStyle>Reverse Snake</TitleStyle>
-            <ScoreStyle>Score</ScoreStyle>
+            <ScoreStyle>Score: {counter}</ScoreStyle>
         </ScoreBStyle>
     )
 }

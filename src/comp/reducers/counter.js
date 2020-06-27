@@ -5,7 +5,8 @@ const counterReducer = (state=0, action) => {
         case 'RESTART':
             state = 0
             return state;
-        default: state;
+        default: 
+            return state;
     }
 };
 

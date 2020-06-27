@@ -1,43 +1,36 @@
 import React from 'react';
 import './board.css';
-// import Enemy from './enemy';
-import {GameEngine} from "react-game-engine";
+// external files
+import { GameEngine } from "react-game-engine";
+import { useSelector } from 'react-redux';
+// custom files
 import Player from '../objects/player';
-import {MovePlayer} from "../../systems/systems";
+import { MovePlayer } from "../../systems/systems";
+// import { getLocation } from "../actions";
 
-class Board extends React.Component{  
-    constructor(prop){
-        super(prop);
-        this.state = {
-            player:{
-                x: 350, 
-                y: 350
-            }
-        };
-    }
+const Board = () =>{  
+    const Plocation = useSelector(state=> state.location.player);
     
-    render(){
-        const styles = {
-            height:"700px",
-            width: "700px",
-            color: "white",
-            margin: 'auto',
-            border: '2px solid white'
-        }
-        return(
-            <GameEngine 
-            style= {styles}
-            systems={[MovePlayer]}
-            entities={{
-                Player:{
-                    x:this.state.player.x,
-                    y:this.state.player.y,
-                    renderer:<Player/>
-                }
-            }}>
-            </GameEngine>
-        );
+    const styles = {
+        height:"700px",
+        width: "700px",
+        color: "white",
+        margin: 'auto',
+        border: '2px solid white'
     }
+    return(
+        <GameEngine 
+        style= {styles}
+        systems={[MovePlayer]}
+        entities={{
+            Player:{
+                x:Plocation.x,
+                y:Plocation.y,
+                renderer:<Player/>
+            }
+        }}>
+        </GameEngine>
+    );
 }
 
 export default Board;
