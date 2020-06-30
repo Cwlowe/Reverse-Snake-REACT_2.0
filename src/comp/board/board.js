@@ -4,31 +4,24 @@ import './board.css';
 import { GameEngine } from "react-game-engine";
 import { useSelector } from 'react-redux';
 // custom files
-import Player from '../objects/player';
-import { MovePlayer } from "../../systems/systems";
+import { EntitiesSystem } from "../../systems/systems";
 // import { getLocation } from "../actions";
 
 const Board = () =>{  
-    const Plocation = useSelector(state=> state.location.player);
-    
+    const Entities = useSelector(state=> state.entities);
     const styles = {
         height:"700px",
         width: "700px",
         color: "white",
         margin: 'auto',
-        border: '2px solid white'
+        outline: '2px solid white'
     }
+    
     return(
-        <GameEngine 
+        <GameEngine className="board"
         style= {styles}
-        systems={[MovePlayer]}
-        entities={{
-            Player:{
-                x:Plocation.x,
-                y:Plocation.y,
-                renderer:<Player/>
-            }
-        }}>
+        systems={[EntitiesSystem]}
+        entities={Entities}>
         </GameEngine>
     );
 }
